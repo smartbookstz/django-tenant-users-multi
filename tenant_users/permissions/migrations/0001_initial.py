@@ -57,8 +57,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
+                    # Change from OneToOneField to ForeignKey for one-to-many relationship
                     "profile",
-                    models.OneToOneField(
+                    models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to=settings.AUTH_USER_MODEL,
                     ),

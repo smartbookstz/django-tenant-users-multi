@@ -135,9 +135,15 @@ class UserTenantPermissions(PermissionsMixin, AbstractBaseUserFacade):
 
     # The profile stores all of the common information between
     # tenants for a user
-    profile = models.OneToOneField(
+    # profile = models.OneToOneField(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE,
+    # )
+
+    profile = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        related_name="tenants",  # This allows you to access the user's tenants
     )
 
     is_staff = models.BooleanField(
