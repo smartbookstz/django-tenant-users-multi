@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
                     "profile",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.AUTH_USER_MODEL,
+                        to=settings.AUTH_USER_MODEL, related_name='tenant_permissions',
                     ),
                 ),
                 (

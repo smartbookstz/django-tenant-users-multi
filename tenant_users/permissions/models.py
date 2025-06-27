@@ -143,7 +143,7 @@ class UserTenantPermissions(PermissionsMixin, AbstractBaseUserFacade):
     profile = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="tenants",  # This allows you to access the user's tenants
+        related_name="tenant_permissions",  # This allows you to access the user's tenants
     )
 
     is_staff = models.BooleanField(
