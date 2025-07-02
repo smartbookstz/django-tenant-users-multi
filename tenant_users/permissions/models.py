@@ -27,7 +27,10 @@ class PermissionsMixinFacade:
     # the appropriate False or empty set
     @tenant_cached_property
     def tenant_perms(self):
-        return UserTenantPermissions.objects.get(
+        # return UserTenantPermissions.objects.get(
+        #     profile_id=self.pk,
+        # )
+        return UserTenantPermissions.objects.filter(
             profile_id=self.pk,
         )
 
