@@ -56,6 +56,9 @@ class PermissionsMixinFacade:
         print("Current Tenant:", current_tenant)
         print(self.tenant_perms)
 
+        for tenant_p in self.tenant_perms:
+            print("Tenant Permission:", tenant_p)
+
         return self.tenant_perms.filter(
             profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
