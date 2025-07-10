@@ -52,6 +52,10 @@ class PermissionsMixinFacade:
     def is_staff(self):
         from tenant_users.tenants.utils import get_current_tenant
         current_tenant = get_current_tenant()
+
+        print("Current Tenant:", current_tenant)
+        print(tenant_perms)
+
         return self.tenant_perms.filter(
             profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
