@@ -53,7 +53,7 @@ class PermissionsMixinFacade:
         from tenant_users.tenants.utils import get_current_tenant
         current_tenant = get_current_tenant()
         return self.tenant_perms.filter(
-            tenant=current_tenant,  # or tenant__schema_name=current_schema
+            profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
         ).exists()
 
