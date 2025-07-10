@@ -64,6 +64,7 @@ class PermissionsMixinFacade:
             is_staff=True
         ).first()
         print("Data:", data)
+        print("Data:", data.is_staff)
         return data.is_staff
 
     @tenant_cached_property
