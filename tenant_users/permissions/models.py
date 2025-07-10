@@ -4,8 +4,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from tenant_users.permissions.functional import tenant_cached_property
-from tenant_users.tenants.utils import get_current_tenant
-
 
 class PermissionsMixinFacade:
     """A facade for Django's PermissionMixin to handle multi-tenant permissions.
@@ -52,6 +50,7 @@ class PermissionsMixinFacade:
 
     @tenant_cached_property
     def is_staff(self):
+        from tenant_users.tenants.utils import get_current_tenant
         current_tenant = get_current_tenant()
         return self.tenant_perms.filter(
             tenant=current_tenant,  # or tenant__schema_name=current_schema
