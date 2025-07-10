@@ -53,16 +53,17 @@ class PermissionsMixinFacade:
         from tenant_users.tenants.utils import get_current_tenant
         current_tenant = get_current_tenant()
 
-        print("Current Tenant:", current_tenant)
-        print(self.tenant_perms)
+        # print("Current Tenant:", current_tenant)
+        # print(self.tenant_perms)
+        #
+        # for tenant_p in self.tenant_perms:
+        #     print("Tenant Permission:", tenant_p)
 
-        for tenant_p in self.tenant_perms:
-            print("Tenant Permission:", tenant_p)
-
-        return self.tenant_perms.filter(
+        data = self.tenant_perms.filter(
             profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
-        ).exists()
+        ).first()
+        return data.is_staff if data else FalsΩ
 
     @tenant_cached_property
     def is_superuser(self):
