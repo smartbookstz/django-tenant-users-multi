@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from tenant_users.permissions.functional import tenant_cached_property
-from tenant_users.permissions.utils import get_current_tenant
+from tenant_users.tenants.utils import get_current_tenant
 
 
 class PermissionsMixinFacade:
