@@ -63,7 +63,8 @@ class PermissionsMixinFacade:
             # profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
         ).first()
-        return data.is_staff if data else FalsΩ
+        print("Data:", data)
+        return data.is_staff
 
     @tenant_cached_property
     def is_superuser(self):
