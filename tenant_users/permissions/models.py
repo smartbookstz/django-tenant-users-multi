@@ -63,6 +63,7 @@ class PermissionsMixinFacade:
             # profile=current_tenant,  # or tenant__schema_name=current_schema
             is_staff=True
         ).first()
+        print("Tenant Permissions:", self.tenant_perms)
         print("Data:", data)
         print("Data:", data.is_staff)
         return data.is_staff
